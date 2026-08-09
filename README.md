@@ -8,7 +8,10 @@
 
 **A high-performance, feature-rich, and secure full-stack e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js), Redis caching, Stripe payment gateway, and Tailwind CSS.**
 
-[Key Features](#-key-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture--project-structure) • [Getting Started](#-getting-started) • [Environment Variables](#-environment-variables) • [API Documentation](#-api-documentation) • [License](#-license)
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-ecommerce0.up.railway.app-brightgreen?style=for-the-badge)](https://ecommerce0.up.railway.app)
+[![License](https://img.shields.io/badge/License-ISC-blue.svg?style=for-the-badge)](LICENSE)
+
+[Live Demo](https://ecommerce0.up.railway.app) • [Key Features](#-key-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture--project-structure) • [Getting Started](#-getting-started) • [Deployment](#-deployment) • [API Documentation](#-api-documentation) • [License](#-license)
 
 </div>
 
@@ -134,13 +137,12 @@ cd ..
 ```
 
 ### 3. Configure Environment Variables
-Create a `.env` file in the root directory (`backend/.env` or root depending on your local config loader) and configure the required environment variables:
+Create a `.env` file in the root directory and configure the required environment variables:
 
 ```env
 PORT=5000
 MONGODB_URI=your_mongodb_connection_string
 REDIS_URL=your_redis_connection_string
-PORT=5000
 NODE_ENV=development
 
 ACCESS_TOKEN_SECRET=your_jwt_access_token_secret
@@ -176,6 +178,56 @@ To build both frontend and backend for production deployment:
 npm run build
 npm start
 ```
+
+---
+
+## ☁️ Deployment Instructions (Railway)
+
+This application can be seamlessly deployed as a monolithic full-stack application on platforms like **Railway**, where the Express backend serves the built React frontend static files in production.
+
+### Step 1: Prepare Your Repository
+Ensure your root `package.json` contains the correct build and start scripts:
+```json
+"scripts": {
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+  "start": "node backend/server.js"
+}
+```
+And verify that your Express server in `backend/server.js` serves the frontend distribution in production:
+```javascript
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
+```
+
+### Step 2: Deploy on Railway
+1. Log in to [Railway](https://railway.app/) and click **New Project**.
+2. Select **Deploy from GitHub repo** and choose your `aihamjassar/E-commerce-store` repository.
+3. Railway will automatically detect the Node.js project.
+
+### Step 3: Configure Environment Variables in Railway
+Go to your project's **Variables** tab in Railway and add the following production environment variables:
+
+| Variable Name | Description |
+| :--- | :--- |
+| `PORT` | Set automatically by Railway (or default to 5000) |
+| `NODE_ENV` | `production` |
+| `MONGODB_URI` | Your MongoDB Atlas connection string |
+| `REDIS_URL` | Your Redis cloud connection string |
+| `ACCESS_TOKEN_SECRET` | Secure random secret string for JWT access tokens |
+| `REFRESH_TOKEN_SECRET` | Secure random secret string for JWT refresh tokens |
+| `STRIPE_SECRET_KEY` | Your Stripe secret API key |
+| `CLOUDINARY_CLOUD_NAME` | Your Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | Your Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Your Cloudinary API secret |
+| `CLIENT_URL` | Your Railway public application URL (e.g., `https://ecommerce0.up.railway.app`) |
+
+### Step 4: Build & Domain Setup
+- Railway will automatically run `npm run build` and then `npm start`.
+- Once deployment succeeds, generate or assign your custom domain/public URL (e.g., `https://ecommerce0.up.railway.app`) under the **Settings** tab.
 
 ---
 
