@@ -1,0 +1,100 @@
+[
+  {
+    "name": "Classic Slim Fit Jeans",
+    "description": "Comfortable and durable slim fit jeans made from organic cotton. Perfect for everyday wear.",
+    "price": 49.99,
+    "category": "jeans",
+    "image": "https://images.unsplash.com/photo-1542272604-787c96355d55?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Distressed Streetwear Jeans",
+    "description": "Modern distressed jeans with a relaxed fit for a bold urban look.",
+    "price": 59.99,
+    "category": "jeans",
+    "image": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Essential Organic Cotton T-Shirt",
+    "description": "Soft, breathable, and sustainably sourced 100% organic cotton t-shirt.",
+    "price": 19.99,
+    "category": "t-shirts",
+    "image": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Graphic Print T-Shirt",
+    "description": "Stylish graphic print tee featuring minimalist contemporary artwork.",
+    "price": 24.99,
+    "category": "t-shirts",
+    "image": "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Minimalist Leather Sneakers",
+    "description": "Clean, versatile leather sneakers designed for all-day comfort and timeless style.",
+    "price": 89.99,
+    "category": "shoes",
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Running Performance Shoes",
+    "description": "High-performance running shoes with advanced cushioning and breathable mesh.",
+    "price": 119.99,
+    "category": "shoes",
+    "image": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Classic Aviator Sunglasses",
+    "description": "Timeless aviator sunglasses with UV400 protection and lightweight metal frames.",
+    "price": 34.99,
+    "category": "glasses",
+    "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Retro Round Optical Glasses",
+    "description": "Vintage-inspired round frames that add a touch of intellectual charm to any outfit.",
+    "price": 29.99,
+    "category": "glasses",
+    "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Weatherproof Bomber Jacket",
+    "description": "Sleek and warm bomber jacket designed to withstand wind and light rain.",
+    "price": 99.99,
+    "category": "jackets",
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Classic Leather Biker Jacket",
+    "description": "Genuine leather biker jacket with heavy-duty zips and a rugged silhouette.",
+    "price": 199.99,
+    "category": "jackets",
+    "image": "https://images.unsplash.com/photo-1520975954732-35dd22299614?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Tailored Slim Suit",
+    "description": "Impeccably tailored two-piece suit crafted from premium wool blend fabric.",
+    "price": 299.99,
+    "category": "suits",
+    "image": "https://images.unsplash.com/photo-1594938298603-c8148c4dae35?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Executive Business Suit",
+    "description": "Sophisticated executive suit designed for boardroom confidence and formal events.",
+    "price": 349.99,
+    "category": "suits",
+    "image": "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Minimalist Leather Backpack",
+    "description": "Durable and elegant leather backpack with a dedicated laptop compartment.",
+    "price": 129.99,
+    "category": "bags",
+    "image": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=800"
+  },
+  {
+    "name": "Canvas Weekend Travel Bag",
+    "description": "Spacious and rugged canvas weekend bag with leather trim for short trips.",
+    "price": 89.99,
+    "category": "bags",
+    "image": "https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&q=80&w=800"
+  }
+]
