@@ -4,7 +4,8 @@
     "description": "Comfortable and durable slim fit jeans made from organic cotton. Perfect for everyday wear.",
     "price": 49.99,
     "category": "jeans",
-    "image": "https://images.unsplash.com/photo-1542272604-787c96355d55?auto=format&fit=crop&q=80&w=800"
+    "image": "https://images.unsplash.com/photo-1542272604-787c96355d55?auto=format&fit=crop&q=80&w=800",
+    "isFeatured": true
   },
   {
     "name": "Distressed Streetwear Jeans",
@@ -32,7 +33,8 @@
     "description": "Clean, versatile leather sneakers designed for all-day comfort and timeless style.",
     "price": 89.99,
     "category": "shoes",
-    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=800"
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?auto=format&fit=crop&q=80&w=800",
+    "isFeatured": true
   },
   {
     "name": "Running Performance Shoes",
@@ -60,7 +62,8 @@
     "description": "Sleek and warm bomber jacket designed to withstand wind and light rain.",
     "price": 99.99,
     "category": "jackets",
-    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800"
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&q=80&w=800",
+    "isFeatured": true
   },
   {
     "name": "Classic Leather Biker Jacket",

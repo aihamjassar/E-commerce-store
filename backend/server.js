@@ -26,6 +26,25 @@ app.use("/api/coupons", couponRoute);
 app.use("/api/payments", paymentRoute);
 app.use("/api/analytics", analyticsRoute);
 
+app.get("/api/seed", async (req, res) => {
+  try {
+    const Product = require("./models/product.model");
+    const fs = require("fs");
+    const path = require("path");
+    const productsPath = path.join(__dirname, "../products.json");
+    if (fs.existsSync(productsPath)) {
+      const productsData = JSON.parse(fs.readFileSync(productsPath, "utf8"));
+      await Product.deleteMany({}); // Clear existing to ensure fresh start
+      await Product.insertMany(productsData);
+      res.status(200).json({ success: true, message: "Database seeded successfully!" });
+    } else {
+      res.status(404).json({ success: false, message: "products.json not found at " + productsPath });
+    }
+  } catch (error) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+});
+
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
   app.get("{*splat}", (req, res) => {
