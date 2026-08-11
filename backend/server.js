@@ -36,6 +36,12 @@ app.get("/api/seed", async (req, res) => {
       const productsData = JSON.parse(fs.readFileSync(productsPath, "utf8"));
       await Product.deleteMany({}); // Clear existing to ensure fresh start
       await Product.insertMany(productsData);
+      try {
+        const redis = require("./lib/redis");
+        await redis.del("featured_products");
+      } catch (redisError) {
+        console.error("Redis error:", redisError.message);
+      }
       res.status(200).json({ success: true, message: "Database seeded successfully!" });
     } else {
       res.status(404).json({ success: false, message: "products.json not found at " + productsPath });
