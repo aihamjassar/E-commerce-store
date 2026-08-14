@@ -1,61 +1,271 @@
-# E-Commerce Store
+<div align="center">
 
-> A MERN-style e-commerce platform with user authentication, product and category browsing, shopping cart state, coupons, Stripe payments, Cloudinary media, Redis support, administrative product management, and analytics.
+<img src="assets/logo.png" alt="E-Store Logo" width="160" height="160" style="border-radius: 50%;">
 
-## Overview
+# E-Store: Full-Stack MERN E-Commerce Platform
 
-This repository contains the source and supporting files for **E-Commerce Store**. The documentation below was prepared from the current repository structure and implementation files so that setup expectations, project boundaries, and implemented capabilities are explicit.
+<img src="assets/banner.png" alt="E-Store Banner" width="100%">
 
-## Technology
+**A high-performance, feature-rich, and secure full-stack e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js), Redis caching, Stripe payment gateway, and Tailwind CSS.**
 
-| Area | Implementation |
-| --- | --- |
-| Frontend | React and Vite client in frontend/ |
-| Backend | Express 5 API in backend/ |
-| Data | MongoDB with Mongoose |
-| Payments | Stripe |
-| Media and cache | Cloudinary and Redis integrations |
+[![Live Demo](https://img.shields.io/badge/🚀_Live_Demo-ecommerce0.up.railway.app-brightgreen?style=for-the-badge)](https://ecommerce0.up.railway.app)
+[![License](https://img.shields.io/badge/License-ISC-blue.svg?style=for-the-badge)](LICENSE)
 
-## Key capabilities
+[Live Demo](https://ecommerce0.up.railway.app) • [Key Features](#-key-features) • [Tech Stack](#-tech-stack) • [Architecture](#-architecture--project-structure) • [Getting Started](#-getting-started) • [Deployment](#-deployment) • [API Documentation](#-api-documentation) • [License](#-license)
 
-| Area | Current implementation |
-| --- | --- |
-| Customer commerce | Supports account, catalog, category, cart, coupon, and purchase-success or cancellation flows. |
-| Administration | Provides product creation, product listing, and analytics components. |
-| Integrated services | Includes dedicated backend helpers for Cloudinary, Redis, and Stripe. |
+</div>
 
-## Getting started
+---
 
-Use the following workflow to work with the project locally.
+## 🌟 Overview
 
+**E-Store** is an enterprise-grade e-commerce platform engineered to deliver seamless shopping experiences, lightning-fast product filtering and caching, secure user authentication, and robust administrative control. Designed with modern architectural patterns, it integrates industry-leading tools such as **Stripe** for payment processing, **Cloudinary** for cloud media asset management, **Redis** for high-speed caching and coupon verification, and **Zustand** for predictable state management.
+
+Whether you are browsing curated fashion categories, applying real-time promotional discount coupons, managing a cart with dynamic quantity updates, or monitoring sales analytics through an admin dashboard, **E-Store** provides a polished, responsive, and secure environment.
+
+---
+
+## 📸 Platform Showcase
+
+| Storefront & Categories | Admin Analytics Dashboard |
+| :---: | :---: |
+| ![Storefront Showcase](frontend/public/screenshot-for-readme.png) | ![Admin Analytics](frontend/public/jackets.jpg) |
+| *Intuitive homepage featuring curated categories, featured products, and responsive navigation.* | *Comprehensive analytics tab providing real-time sales metrics and trends.* |
+
+---
+
+## ✨ Key Features
+
+### 🛍️ Customer Experience & Shopping
+- **Dynamic Category Filtering**: Explore curated collections including Jeans, T-shirts, Shoes, Jackets, Suits, Glasses, Bags, and more.
+- **Advanced Cart & Order Summary**: Real-time quantity adjustments, price calculations, and item management powered by Zustand.
+- **Interactive Checkout & Payments**: Secure checkout powered by **Stripe API**, complete with success and cancellation redirection handlers.
+- **Smart Coupon System**: Apply promotional discount codes validated through high-speed Redis caching.
+- **"People Also Bought" Recommendations**: Intelligent cross-selling suggestions to enhance user engagement and average order value.
+
+### 🛡️ Security & Authentication
+- **JWT Authentication with Refresh Tokens**: Secure cookie-based authentication with JSON Web Tokens protecting sensitive endpoints.
+- **Password Hashing**: Industry-standard cryptographic hashing using `bcryptjs`.
+- **Protected Routes & Role-Based Access**: Strict separation between customer storefronts and restricted administrator panels.
+
+### 📊 Administrator Dashboard
+- **Product Management**: Create, view, and delete products with image uploads directly handled via **Cloudinary**.
+- **Featured Product Control**: Toggle featured status on products to highlight promotional items across the storefront.
+- **Sales Analytics & Visualizations**: Real-time business intelligence metrics including total users, total products, total sales, and revenue tracking powered by **Recharts**.
+
+---
+
+## 🛠️ Tech Stack
+
+The application is architected using a decoupled client-server model, utilizing cutting-edge web development technologies.
+
+### **Frontend**
+- **Core Library**: **React 19** with **Vite** for blazing-fast development and hot module replacement.
+- **Styling**: **Tailwind CSS v4** for utility-first, fully responsive design.
+- **State Management**: **Zustand** for lightweight and scalable global state stores.
+- **Routing**: **React Router v7** for seamless client-side page transitions.
+- **UI & Animations**: **Lucide React** icons, **Framer Motion** for fluid animations, **React Hot Toast** for notifications, and **Recharts** for data visualization.
+
+### **Backend**
+- **Runtime & Framework**: **Node.js** with **Express 5** RESTful API architecture.
+- **Database**: **MongoDB & Mongoose ODM** for robust NoSQL data modeling and persistence.
+- **Caching & Session Management**: **Redis (ioredis)** for lightning-fast token blacklisting and session optimization.
+- **Payment Processing**: **Stripe Node SDK** for secure payment intents and webhook handling.
+- **Media Storage**: **Cloudinary SDK** for secure cloud image uploading and optimization.
+
+---
+
+## 📂 Architecture & Project Structure
+
+The project follows a clean, modular directory structure ensuring high maintainability and scalability across the client and server codebases.
+
+```text
+E-commerce-store/
+├── backend/
+│   ├── controllers/      # Business logic handlers (auth, cart, coupon, payment, product, analytics)
+│   ├── db/               # Database connection configuration (MongoDB)
+│   ├── lib/              # Third-party integrations (Cloudinary, Redis, Stripe)
+│   ├── middlewares/      # Custom authentication and authorization middleware
+│   ├── models/           # Mongoose schemas (User, Product, Order, Coupon)
+│   ├── routes/           # Express API route endpoints
+│   ├── utils/            # Helper utilities (JWT generation)
+│   └── server.js         # Application entry point and server setup
+├── frontend/
+│   ├── public/           # Static assets, fallback images, and screenshots
+│   ├── src/
+│   │   ├── components/   # Modular UI components (Admin, Cart, Common, Products)
+│   │   ├── lib/          # Axios HTTP client configuration
+│   │   ├── pages/        # View components (Admin, Cart, Home, Login, Signup, etc.)
+│   │   ├── stores/       # Zustand state stores (cart, product, user)
+│   │   ├── App.jsx       # Root component and router configuration
+│   │   └── main.jsx      # React DOM hydration entry point
+│   ├── package.json      # Frontend dependencies and scripts
+│   └── vite.config.js    # Vite build and development configuration
+├── package.json          # Root dependencies and build scripts
+└── README.md             # Project documentation
+```
+
+---
+
+## 🚀 Getting Started
+
+Follow these instructions to set up and run the project locally on your machine.
+
+### Prerequisites
+- **Node.js** (v18 or higher recommended)
+- **MongoDB** instance (local or Atlas cluster)
+- **Redis** server (local or cloud instance)
+- **Stripe** account (for payment gateway integration)
+- **Cloudinary** account (for media uploads)
+
+### 1. Clone the Repository
 ```bash
 git clone https://github.com/aihamjassar/E-commerce-store.git
 cd E-commerce-store
-npm install
-npm install --prefix frontend
-# Configure backend environment values
-npm run dev
-# In another terminal: npm run dev --prefix frontend
 ```
 
-## Project structure
+### 2. Install Dependencies
+Install root and frontend dependencies concurrently or separately:
+```bash
+# Install root (backend) dependencies
+npm install
 
-| Path | Purpose |
-| --- | --- |
-| backend/controllers/ | Auth, cart, coupon, payment, product, and analytics logic |
-| backend/models/ | User, product, order, and coupon data models |
-| backend/routes/ | API route definitions |
-| frontend/src/pages/ | Storefront, cart, auth, and admin pages |
-| frontend/src/stores/ | Client-side cart, product, and user state |
+# Install frontend dependencies
+cd frontend
+npm install
+cd ..
+```
 
-## Configuration notes
+### 3. Configure Environment Variables
+Create a `.env` file in the root directory and configure the required environment variables:
 
-Configure MongoDB, Stripe, Cloudinary, Redis, and JWT-related settings through environment variables. Never commit service tokens; verify webhook and payment settings in a non-production environment first.
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_connection_string
+REDIS_URL=your_redis_connection_string
+NODE_ENV=development
 
-## License
+ACCESS_TOKEN_SECRET=your_jwt_access_token_secret
+REFRESH_TOKEN_SECRET=your_jwt_refresh_token_secret
 
-No license file is currently included. Confirm the intended licensing terms with the repository owner before reuse or distribution.
+STRIPE_SECRET_KEY=your_stripe_secret_key
 
-## Maintainer
+CLOUDINARY_CLOUD_NAME=your_cloudinary_cloud_name
+CLOUDINARY_API_KEY=your_cloudinary_api_key
+CLOUDINARY_API_SECRET=your_cloudinary_api_secret
+CLIENT_URL=http://localhost:5173
+```
 
-Maintained by [Aiham Jassar](https://github.com/aihamjassar). Contributions, issue reports, and improvement suggestions are welcome through the repository.
+### 4. Running the Application
+
+#### Development Mode
+Run the backend server with `nodemon` (auto-reload):
+```bash
+npm run dev
+```
+
+In a separate terminal, start the frontend Vite development server:
+```bash
+cd frontend
+npm run dev
+```
+
+Open your browser and navigate to `http://localhost:5173`.
+
+#### Production Build
+To build both frontend and backend for production deployment:
+```bash
+npm run build
+npm start
+```
+
+---
+
+## ☁️ Deployment Instructions (Railway)
+
+This application can be seamlessly deployed as a monolithic full-stack application on platforms like **Railway**, where the Express backend serves the built React frontend static files in production.
+
+### Step 1: Prepare Your Repository
+Ensure your root `package.json` contains the correct build and start scripts:
+```json
+"scripts": {
+  "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend",
+  "start": "node backend/server.js"
+}
+```
+And verify that your Express server in `backend/server.js` serves the frontend distribution in production:
+```javascript
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "../frontend", "dist", "index.html"));
+  });
+}
+```
+
+### Step 2: Deploy on Railway
+1. Log in to [Railway](https://railway.app/) and click **New Project**.
+2. Select **Deploy from GitHub repo** and choose your `aihamjassar/E-commerce-store` repository.
+3. Railway will automatically detect the Node.js project.
+
+### Step 3: Configure Environment Variables in Railway
+Go to your project's **Variables** tab in Railway and add the following production environment variables:
+
+| Variable Name | Description |
+| :--- | :--- |
+| `PORT` | Set automatically by Railway (or default to 5000) |
+| `NODE_ENV` | `production` |
+| `MONGODB_URI` | Your MongoDB Atlas connection string |
+| `REDIS_URL` | Your Redis cloud connection string |
+| `ACCESS_TOKEN_SECRET` | Secure random secret string for JWT access tokens |
+| `REFRESH_TOKEN_SECRET` | Secure random secret string for JWT refresh tokens |
+| `STRIPE_SECRET_KEY` | Your Stripe secret API key |
+| `CLOUDINARY_CLOUD_NAME` | Your Cloudinary cloud name |
+| `CLOUDINARY_API_KEY` | Your Cloudinary API key |
+| `CLOUDINARY_API_SECRET` | Your Cloudinary API secret |
+| `CLIENT_URL` | Your Railway public application URL (e.g., `https://ecommerce0.up.railway.app`) |
+
+### Step 4: Build & Domain Setup
+- Railway will automatically run `npm run build` and then `npm start`.
+- Once deployment succeeds, generate or assign your custom domain/public URL (e.g., `https://ecommerce0.up.railway.app`) under the **Settings** tab.
+
+---
+
+## 🔌 API Endpoints Summary
+
+| Method | Endpoint | Description | Access |
+| :--- | :--- | :--- | :--- |
+| **POST** | `/api/auth/signup` | Register a new user account | Public |
+| **POST** | `/api/auth/login` | Authenticate user & issue tokens | Public |
+| **POST** | `/api/auth/logout` | Terminate user session | Private |
+| **GET** | `/api/products` | Retrieve all active products | Public |
+| **GET** | `/api/products/featured` | Retrieve featured products | Public |
+| **POST** | `/api/products` | Create a new product | Admin |
+| **DELETE** | `/api/products/:id` | Delete a product | Admin |
+| **GET** | `/api/carts` | Get current user's cart items | Private |
+| **POST** | `/api/carts` | Add item to cart | Private |
+| **POST** | `/api/payments/create-checkout-session` | Create Stripe checkout session | Private |
+| **GET** | `/api/analytics` | Retrieve store sales analytics | Admin |
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps to contribute:
+1. Fork the repository.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+---
+
+## 📄 License
+
+Distributed under the **ISC License**. See `LICENSE` for more information.
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by <a href="https://github.com/aihamjassar">Aiham Jassar</a></p>
+</div>
