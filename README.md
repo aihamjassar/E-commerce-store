@@ -5,7 +5,7 @@
 # E-Store: Full-Stack MERN E-Commerce Platform
 
 <p align="center">
-  <img src="assets/banner.png" alt="E-Store storefront categories banner" width="100%">
+  <img src="assets/banner.png" alt="E-Commerce Store categories showcase banner" width="100%">
 </p>
 
 **A high-performance, feature-rich, and secure full-stack e-commerce web application built with the MERN stack (MongoDB, Express, React, Node.js), Redis caching, Stripe payment gateway, and Tailwind CSS.**
@@ -33,7 +33,7 @@ The screenshots below highlight the two core experiences in **E-Store**: a visua
 
 | Storefront Categories | Admin Product Workspace |
 | :---: | :---: |
-| <img src="assets/banner.png" alt="E-Store storefront categories" width="100%"> | <img src="frontend/public/admin-dashboard.png" alt="E-Store admin dashboard product creation screen" width="100%"> |
+| <img src="assets/banner.png" alt="E-Commerce Store categories showcase" width="100%"> | <img src="frontend/public/admin-dashboard.png" alt="E-Store admin dashboard product creation screen" width="100%"> |
 | *Discover Jeans, T-shirts, Shoes, Glasses, Jackets, and Suits through a responsive category grid.* | *Create and manage products with category selection, pricing, descriptions, and image uploads.* |
 
 > **Visual highlights:** The dark interface, emerald accents, responsive category cards, and role-aware navigation are carried consistently across the customer and administrator experiences.
