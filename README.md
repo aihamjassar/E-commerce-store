@@ -1,5 +1,5 @@
 <div align="center">
-
+ 
 <img src="assets/logo.png" alt="E-Store Logo" width="160" height="160" style="border-radius: 50%;">
 
 # E-Store: Full-Stack MERN E-Commerce Platform
